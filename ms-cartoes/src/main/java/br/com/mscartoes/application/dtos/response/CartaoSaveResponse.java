@@ -1,4 +1,4 @@
-package br.com.mscartoes.domain.model;
+package br.com.mscartoes.application.dtos.response;
 
 import br.com.mscartoes.application.dtos.CartaoDTO;
 import br.com.mscartoes.domain.enums.BandeiraCartao;
