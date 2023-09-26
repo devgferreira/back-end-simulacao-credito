@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/clientes")
 public class ClientesController {
@@ -24,5 +26,14 @@ public class ClientesController {
         ClienteDTO cliente = _clienteService.save(clienteDTO);
         ClienteSaveResponse clienteSaveResponse = new ClienteSaveResponse(cliente);
         return new ResponseEntity<>(clienteSaveResponse, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/{cpf}")
+    public ResponseEntity<ClienteDTO> findClienteByCpf(@PathVariable String cpf){
+        ClienteDTO cliente = _clienteService.getByCPF(cpf);
+        if(cliente.getCpf() == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(cliente);
     }
 }
