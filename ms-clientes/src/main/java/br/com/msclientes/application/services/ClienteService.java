@@ -6,7 +6,9 @@ import br.com.msclientes.domain.interfaces.IClienteRepository;
 import br.com.msclientes.domain.model.Cliente;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ClienteService implements IClienteService {
 
     private final IClienteRepository _clienteRepository;
@@ -26,6 +28,6 @@ public class ClienteService implements IClienteService {
 
     @Override
     public ClienteDTO getByCPF(String cpf) {
-        return _modelMapper.map(_clienteRepository.findByCPF(cpf).orElse(new Cliente()), ClienteDTO.class);
+        return _modelMapper.map(_clienteRepository.findByCpf(cpf).orElse(new Cliente()), ClienteDTO.class);
     }
 }
