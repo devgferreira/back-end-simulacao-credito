@@ -12,7 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CartaoService implements ICartaoService {
@@ -34,9 +36,13 @@ public class CartaoService implements ICartaoService {
     }
 
     @Override
-    public List<CartaoDTO> getCartoesRendaMenorIgual(Long renda) {
+    public List<CartaoDTO> getCartoesRendaMenorIgual(Long renda){
         BigDecimal rendaBigDecimal = BigDecimal.valueOf(renda);
-        return _modelMapper.map(
-                _cartaoRepository.findByRendaLessThanEqual(rendaBigDecimal), (Type) Cartao.class);
+        List<Cartao> cartoes = _cartaoRepository.findByRendaLessThanEqual(rendaBigDecimal);
+        List<CartaoDTO> cartoesDto = cartoes.stream()
+                .map(entity -> _modelMapper.map(entity, CartaoDTO.class))
+                .collect(Collectors.toList());
+        return cartoesDto;
     }
+
 }
