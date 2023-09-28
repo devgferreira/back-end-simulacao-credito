@@ -1,5 +1,6 @@
 package br.com.msavaliadorcredito.infra.clients;
 
+import br.com.msavaliadorcredito.domian.model.Cartao;
 import br.com.msavaliadorcredito.domian.model.CartaoCliente;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
@@ -11,5 +12,8 @@ import java.util.List;
 @FeignClient(value = "ms-cartoes", path = "/cartoes")
 public interface CartoesControllerClient {
     @GetMapping(params = "cpf")
-    List<CartaoCliente> getCartoesByCliente(@RequestParam("cpf") String cpf);
+    ResponseEntity<List<CartaoCliente>>  getCartoesByCliente(@RequestParam("cpf") String cpf);
+
+    @GetMapping(params = "renda")
+     ResponseEntity<List<Cartao>> getCartoesRendaAte(@RequestParam("renda") Long renda);
 }
