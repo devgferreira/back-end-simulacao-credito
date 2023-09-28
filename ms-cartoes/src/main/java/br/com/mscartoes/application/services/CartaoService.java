@@ -39,10 +39,10 @@ public class CartaoService implements ICartaoService {
     public List<CartaoDTO> getCartoesRendaMenorIgual(Long renda){
         BigDecimal rendaBigDecimal = BigDecimal.valueOf(renda);
         List<Cartao> cartoes = _cartaoRepository.findByRendaLessThanEqual(rendaBigDecimal);
-        List<CartaoDTO> cartoesDto = cartoes.stream()
+        return cartoes.stream()
                 .map(entity -> _modelMapper.map(entity, CartaoDTO.class))
                 .collect(Collectors.toList());
-        return cartoesDto;
     }
+
 
 }

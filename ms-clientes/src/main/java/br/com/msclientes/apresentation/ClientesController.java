@@ -36,8 +36,8 @@ public class ClientesController {
         return new ResponseEntity<>(clienteSaveResponse, HttpStatus.CREATED);
     }
 
-    @GetMapping("/{cpf}")
-    public ResponseEntity<ClienteDTO> findClienteByCpf(@PathVariable String cpf){
+    @GetMapping(params = "cpf")
+    public ResponseEntity<ClienteDTO> dadosCliente(@RequestParam("cpf") String cpf){
         ClienteDTO cliente = _clienteService.getByCPF(cpf);
         if(cliente.getCpf() == null){
             return ResponseEntity.notFound().build();
