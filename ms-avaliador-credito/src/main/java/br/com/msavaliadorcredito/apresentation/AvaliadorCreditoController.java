@@ -1,11 +1,11 @@
 package br.com.msavaliadorcredito.apresentation;
 
 import br.com.msavaliadorcredito.application.interfaces.IAvaliadorCreditoService;
-import br.com.msavaliadorcredito.domian.model.DadosAvaliacao;
-import br.com.msavaliadorcredito.domian.model.RetornoAvaliacaoCliente;
-import br.com.msavaliadorcredito.domian.model.SituacaoCliente;
-import br.com.msavaliadorcredito.infra.clients.exceptions.DadosClienteNotFoundException;
-import br.com.msavaliadorcredito.infra.clients.exceptions.ErroComunicacaoMicroserviceException;
+import br.com.msavaliadorcredito.domian.model.dados.DadosAvaliacao;
+import br.com.msavaliadorcredito.domian.model.dados.RetornoAvaliacaoCliente;
+import br.com.msavaliadorcredito.domian.model.cliente.SituacaoCliente;
+import br.com.msavaliadorcredito.infra.exceptions.DadosClienteNotFoundException;
+import br.com.msavaliadorcredito.infra.exceptions.ErroComunicacaoMicroserviceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

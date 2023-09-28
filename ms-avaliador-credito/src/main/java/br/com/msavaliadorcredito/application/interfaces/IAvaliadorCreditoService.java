@@ -1,9 +1,9 @@
 package br.com.msavaliadorcredito.application.interfaces;
 
-import br.com.msavaliadorcredito.domian.model.RetornoAvaliacaoCliente;
-import br.com.msavaliadorcredito.domian.model.SituacaoCliente;
-import br.com.msavaliadorcredito.infra.clients.exceptions.DadosClienteNotFoundException;
-import br.com.msavaliadorcredito.infra.clients.exceptions.ErroComunicacaoMicroserviceException;
+import br.com.msavaliadorcredito.domian.model.dados.RetornoAvaliacaoCliente;
+import br.com.msavaliadorcredito.domian.model.cliente.SituacaoCliente;
+import br.com.msavaliadorcredito.infra.exceptions.DadosClienteNotFoundException;
+import br.com.msavaliadorcredito.infra.exceptions.ErroComunicacaoMicroserviceException;
 
 public interface IAvaliadorCreditoService {
 

@@ -1,7 +1,7 @@
 package br.com.msavaliadorcredito.infra.clients;
 
-import br.com.msavaliadorcredito.domian.model.Cartao;
-import br.com.msavaliadorcredito.domian.model.CartaoCliente;
+import br.com.msavaliadorcredito.domian.model.cartao.Cartao;
+import br.com.msavaliadorcredito.domian.model.cartao.CartaoCliente;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
