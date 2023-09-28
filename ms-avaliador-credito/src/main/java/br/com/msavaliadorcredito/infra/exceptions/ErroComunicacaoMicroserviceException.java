@@ -1,4 +1,4 @@
-package br.com.msavaliadorcredito.infra.clients.exceptions;
+package br.com.msavaliadorcredito.infra.exceptions;
 
 import lombok.Getter;
 

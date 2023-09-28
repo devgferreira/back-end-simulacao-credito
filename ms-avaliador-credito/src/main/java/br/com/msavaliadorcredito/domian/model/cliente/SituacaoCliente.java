@@ -1,5 +1,7 @@
-package br.com.msavaliadorcredito.domian.model;
+package br.com.msavaliadorcredito.domian.model.cliente;
 
+import br.com.msavaliadorcredito.domian.model.cartao.CartaoCliente;
+import br.com.msavaliadorcredito.domian.model.cliente.DadosCliente;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

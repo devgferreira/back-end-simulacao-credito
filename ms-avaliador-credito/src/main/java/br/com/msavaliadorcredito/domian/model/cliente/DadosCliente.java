@@ -1,4 +1,4 @@
-package br.com.msavaliadorcredito.domian.model;
+package br.com.msavaliadorcredito.domian.model.cliente;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package br.com.msavaliadorcredito.infra.clients.exceptions;
+package br.com.msavaliadorcredito.infra.exceptions;
 
 public class DadosClienteNotFoundException extends Exception {
     public DadosClienteNotFoundException(){
