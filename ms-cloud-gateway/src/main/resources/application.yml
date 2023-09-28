@@ -6,6 +6,12 @@ spring:
       locator:
         enabled: true
         lower-case-service-id: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8081/realms/back-end-simulacao-credito-realm
+
 
 server:
   port: 8080
@@ -19,3 +25,4 @@ eureka:
   instance:
     hostname: localhost
     instance-id: ${spring.application.name}
+
