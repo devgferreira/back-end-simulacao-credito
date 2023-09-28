@@ -2,10 +2,13 @@ package br.com.msavaliadorcredito.apresentation;
 
 import br.com.msavaliadorcredito.application.interfaces.IAvaliadorCreditoService;
 import br.com.msavaliadorcredito.domian.model.dados.DadosAvaliacao;
+import br.com.msavaliadorcredito.domian.model.dados.DadosSolicitacaoEmissaoCartao;
 import br.com.msavaliadorcredito.domian.model.dados.RetornoAvaliacaoCliente;
 import br.com.msavaliadorcredito.domian.model.cliente.SituacaoCliente;
+import br.com.msavaliadorcredito.domian.model.protocolo.ProtocoloSolicitacaoCartao;
 import br.com.msavaliadorcredito.infra.exceptions.DadosClienteNotFoundException;
 import br.com.msavaliadorcredito.infra.exceptions.ErroComunicacaoMicroserviceException;
+import br.com.msavaliadorcredito.infra.exceptions.ErroSolicitacaoCartaoException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +30,7 @@ public class AvaliadorCreditoController {
     }
 
     @GetMapping(value = "situacao-cliente", params = "cpf")
-    public ResponseEntity consultaSituacaoCliente(@RequestParam("cpf") String cpf){
+    public ResponseEntity consultarSituacaoCliente(@RequestParam("cpf") String cpf){
         try {
             SituacaoCliente situacaoCliente = _avaliadorCreditoService.obterSituacaoCliente(cpf);
             return ResponseEntity.ok(situacaoCliente);
@@ -51,4 +54,15 @@ public class AvaliadorCreditoController {
         }
     }
 
+    @PostMapping("solicitacoes-cartao")
+    public ResponseEntity solicitarCartao(@RequestBody DadosSolicitacaoEmissaoCartao dados){
+        try{
+            ProtocoloSolicitacaoCartao protocoloSolicitacaoCartao =
+                    _avaliadorCreditoService.solicitarEmissaoCartao(dados);
+
+            return ResponseEntity.ok(protocoloSolicitacaoCartao);
+        }catch (ErroSolicitacaoCartaoException e){
+            return ResponseEntity.internalServerError().body(e.getMessage());
+        }
+    }
 }
