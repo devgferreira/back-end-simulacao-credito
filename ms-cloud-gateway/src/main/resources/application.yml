@@ -26,3 +26,13 @@ eureka:
     hostname: localhost
     instance-id: ${spring.application.name}
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  file:
+    name: ./log/log-file.log
+
