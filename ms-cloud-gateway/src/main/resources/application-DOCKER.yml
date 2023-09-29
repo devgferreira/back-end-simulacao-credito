@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    gateway:
+      locator:
+        enabled: true
+        lower-case-service-id: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://back-end-simulacao-credito-keycloak:8080/realms/back-end-simulacao-credito-realm
+server:
+  port: 8080
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://ms-eureka-user:rre-easme-usuk@back-end-simulacao-credito-eureka-server:8761/eureka
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}
+
+
+
