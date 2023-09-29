@@ -23,3 +23,12 @@ mq:
   queues:
     emissao-cartoes: emissao-cartoes
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  file:
+    name: ./log/log-file.log
