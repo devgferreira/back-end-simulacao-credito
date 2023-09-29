@@ -1,0 +1,24 @@
+
+server:
+  port: 0
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://ms-eureka-user:rre-easme-usuk@back-end-simulacao-credito-eureka-server:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}]
+
+mq:
+  queues:
+    emissao-cartoes: emissao-cartoes
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  file:
+    name: ./log/log-file.log
