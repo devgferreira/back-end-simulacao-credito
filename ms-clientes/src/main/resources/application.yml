@@ -4,4 +4,4 @@ spring:
   main:
     allow-bean-definition-overriding: true
   profiles:
-    active: DOCKER
+    active: LOCAL
