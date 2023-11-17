@@ -1,8 +1,7 @@
 package br.com.msclientes.infra.exceptions;
 
-import lombok.Data;
 import br.com.msclientes.domain.enums.ErrorCodes;
-
+import lombok.Data;
 
 import java.util.List;
 

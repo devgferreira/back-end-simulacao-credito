@@ -10,10 +10,10 @@ import br.com.msclientes.infra.exceptions.ClienteJaExisteExeception;
 import br.com.msclientes.infra.exceptions.ClienteNaoEncontradoExeception;
 import br.com.msclientes.infra.exceptions.CpfInvalidoExeception;
 import br.com.msclientes.infra.exceptions.ExceptionResponse;
+import org.hibernate.validator.internal.constraintvalidators.hv.br.CPFValidator;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.hibernate.validator.internal.constraintvalidators.hv.br.CPFValidator;
 
 
 @Service
@@ -31,13 +31,13 @@ public class ClienteService implements IClienteService {
     @Override
     public ClienteDTO save(ClienteDTO clienteDTO) {
         Cliente cliente = _modelMapper.map(clienteDTO, Cliente.class);
-        if(_clienteRepository.findByCpf(cliente.getCpf()).isPresent()){
+        if (_clienteRepository.findByCpf(cliente.getCpf()).isPresent()) {
             throw new ClienteJaExisteExeception(new ExceptionResponse(ErrorCodes.CLIENTE_JA_EXISTE, ErrorConstants.CLIENTEO_JA_EXISTE));
         }
-        if(!validator(cliente.getCpf())){
+        if (!validator(cliente.getCpf())) {
             throw new CpfInvalidoExeception(new ExceptionResponse(ErrorCodes.CPF_INVALIDO, ErrorConstants.CPF_INVALIDO));
         }
-        return _modelMapper.map(_clienteRepository.save(cliente), ClienteDTO.class) ;
+        return _modelMapper.map(_clienteRepository.save(cliente), ClienteDTO.class);
     }
 
     @Override
