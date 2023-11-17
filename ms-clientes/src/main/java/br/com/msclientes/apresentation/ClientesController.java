@@ -39,9 +39,6 @@ public class ClientesController {
     @GetMapping(params = "cpf")
     public ResponseEntity<ClienteDTO> dadosCliente(@RequestParam("cpf") String cpf){
         ClienteDTO cliente = _clienteService.getByCPF(cpf);
-        if(cliente.getCpf() == null){
-            return ResponseEntity.notFound().build();
-        }
         return ResponseEntity.ok(cliente);
     }
 }
