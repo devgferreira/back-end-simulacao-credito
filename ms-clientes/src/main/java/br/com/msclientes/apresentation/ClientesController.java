@@ -21,12 +21,6 @@ public class ClientesController {
         _clienteService = clienteService;
     }
 
-    @GetMapping
-    public String status() {
-        log.info("Obetando o status do microservice de clientes");
-        return "ok";
-    }
-
     @PostMapping
     public ResponseEntity<ClienteSaveResponse> save(@RequestBody ClienteDTO clienteDTO) {
         ClienteDTO cliente = _clienteService.criarCliente(clienteDTO);
