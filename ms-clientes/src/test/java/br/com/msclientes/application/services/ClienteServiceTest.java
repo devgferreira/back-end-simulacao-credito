@@ -7,6 +7,7 @@ import static br.com.msclientes.common.ClienteConstatns.CLIENTEDTO_VALIDO;
 import br.com.msclientes.domain.interfaces.IClienteRepository;
 import br.com.msclientes.domain.model.Cliente;
 import br.com.msclientes.infra.exceptions.ClienteJaExisteExeception;
+import br.com.msclientes.infra.exceptions.ClienteNaoEncontradoExeception;
 import br.com.msclientes.infra.exceptions.CpfInvalidoExeception;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -43,7 +44,7 @@ class ClienteServiceTest {
     }
 
     @Test
-    void criarCliente_ComOCpUsado_RetornandoThrowsClienteJaExisteExeception() {
+    void criarCliente_ComOCpfUsado_RetornandoThrowsClienteJaExisteExeception() {
 
         Cliente cliente = _mapper.map(CLIENTEDTO_VALIDO, Cliente.class);
         cliente.setId(1L);
@@ -55,12 +56,28 @@ class ClienteServiceTest {
     }
 
     @Test
+    void criarCliente_ComOCpfInvalido_RetornandoThrowsCpfInvalidoException() {
+
+        Cliente cliente = _mapper.map(CLIENTEDTO_INVALIDO, Cliente.class);
+        cliente.setId(1L);
+
+        assertThrows(CpfInvalidoExeception.class,
+                () -> _clienteService.criarCliente(CLIENTEDTO_INVALIDO));
+    }
+
+    @Test
     void getByCPF_ComOCpfValido_RetornandoClienteDTO () {
         Cliente cliente = _mapper.map(CLIENTEDTO_VALIDO, Cliente.class);
         when(_clienteRepository.findByCpf(cliente.getCpf())).thenReturn(Optional.of(cliente));
         ClienteDTO result = _clienteService.getByCPF(cliente.getCpf());
         assertEquals(CLIENTEDTO_VALIDO, result);
     }
-
+    @Test
+    void getByCPF_ComOCpfValido_ThrowsCpfClienteNaoEncontradoExeception () {
+        Cliente cliente = _mapper.map(CLIENTEDTO_VALIDO, Cliente.class);
+        when(_clienteRepository.findByCpf(cliente.getCpf())).thenReturn(Optional.empty());
+        assertThrows(ClienteNaoEncontradoExeception.class,
+                () -> _clienteService.getByCPF(cliente.getCpf()));
+    }
 
 }
