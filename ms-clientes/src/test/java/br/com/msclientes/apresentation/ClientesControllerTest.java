@@ -34,5 +34,11 @@ class ClientesControllerTest {
                 .andExpect(status().isCreated()).andExpect(jsonPath("$").value(CLIENTEDTO_VALIDO));
     }
 
+    @Test
+    void dadosCliente() throws Exception {
+        when(_clienteService.getByCPF(CLIENTEDTO_VALIDO.getCpf())).thenReturn(CLIENTEDTO_VALIDO);
 
+        _mockMvc.perform(get("/clientes?cpf=" + CLIENTEDTO_VALIDO.getCpf())).andExpect(status().isOk())
+                .andExpect(jsonPath("$").value(CLIENTEDTO_VALIDO));
+    }
 }

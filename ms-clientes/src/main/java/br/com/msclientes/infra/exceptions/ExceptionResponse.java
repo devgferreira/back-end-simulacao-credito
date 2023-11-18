@@ -15,8 +15,4 @@ public class ExceptionResponse {
         this.message = errorCode.getMessage();
     }
 
-    public ExceptionResponse(ErrorCodes errorCode, List<String> details) {
-        this.code = errorCode.name();
-        this.message = errorCode.getMessage();
-    }
 }
