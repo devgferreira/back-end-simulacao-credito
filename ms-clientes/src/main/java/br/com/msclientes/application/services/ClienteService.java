@@ -29,7 +29,7 @@ public class ClienteService implements IClienteService {
     }
 
     @Override
-    public ClienteDTO save(ClienteDTO clienteDTO) {
+    public ClienteDTO criarCliente(ClienteDTO clienteDTO) {
         Cliente cliente = _modelMapper.map(clienteDTO, Cliente.class);
         if (_clienteRepository.findByCpf(cliente.getCpf()).isPresent()) {
             throw new ClienteJaExisteExeception(new ExceptionResponse(ErrorCodes.CLIENTE_JA_EXISTE, ErrorConstants.CLIENTEO_JA_EXISTE));

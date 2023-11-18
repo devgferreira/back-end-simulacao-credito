@@ -29,7 +29,7 @@ public class ClientesController {
 
     @PostMapping
     public ResponseEntity<ClienteSaveResponse> save(@RequestBody ClienteDTO clienteDTO) {
-        ClienteDTO cliente = _clienteService.save(clienteDTO);
+        ClienteDTO cliente = _clienteService.criarCliente(clienteDTO);
         ClienteSaveResponse clienteSaveResponse = new ClienteSaveResponse(cliente);
         return new ResponseEntity<>(clienteSaveResponse, HttpStatus.CREATED);
     }
