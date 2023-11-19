@@ -15,13 +15,13 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(ClienteNaoEncontradoExeception.class)
-    public final ResponseEntity<Object> handleFuncionarioNaoEncontradoExeception(ClienteNaoEncontradoExeception ex) {
+    public final ResponseEntity<Object> handleClienteNaoEncontradoExeception(ClienteNaoEncontradoExeception ex) {
         ExceptionResponse exceptionResponse = new ExceptionResponse(ErrorCodes.CLIENTE_NAO_ENCONTRADO, ex.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exceptionResponse);
     }
 
     @ExceptionHandler(ClienteJaExisteExeception.class)
-    public final ResponseEntity<Object> handleFuncionarioJaExisteExeception(ClienteJaExisteExeception ex) {
+    public final ResponseEntity<Object> handleClienteJaExisteExeception(ClienteJaExisteExeception ex) {
         ExceptionResponse exceptionResponse = new ExceptionResponse(ErrorCodes.CLIENTE_JA_EXISTE, ex.getMessage());
         return ResponseEntity.status(HttpStatus.OK).body(exceptionResponse);
     }
