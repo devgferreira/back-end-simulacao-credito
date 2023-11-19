@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface ICartaoService {
 
-    CartaoDTO save(CartaoDTO cartaoDTO);
+    CartaoDTO criarCartao(CartaoDTO cartaoDTO);
 
     List<CartaoDTO> getCartoesRendaMenorIgual(Long renda);
 }
