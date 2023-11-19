@@ -30,7 +30,7 @@ public class CartaoService implements ICartaoService {
 
     @Override
     @Transactional
-    public CartaoDTO save(CartaoDTO cartaoDTO) {
+    public CartaoDTO criarCartao(CartaoDTO cartaoDTO) {
         Cartao cartao = _modelMapper.map(cartaoDTO, Cartao.class);
         return _modelMapper.map(_cartaoRepository.save(cartao), CartaoDTO.class) ;
     }
