@@ -36,8 +36,8 @@ public class CartoesController {
     }
 
     @PostMapping
-    public ResponseEntity<CartaoSaveResponse> cadastra(@RequestBody CartaoDTO cartaoDTO){
-        CartaoDTO cartao = _cartaoService.save(cartaoDTO);
+    public ResponseEntity<CartaoSaveResponse> cadastraCartao(@RequestBody CartaoDTO cartaoDTO){
+        CartaoDTO cartao = _cartaoService.criarCartao(cartaoDTO);
         CartaoSaveResponse cartaoSaveResponse = new CartaoSaveResponse(cartao);
         return new ResponseEntity<>(cartaoSaveResponse, HttpStatus.CREATED);
     }
