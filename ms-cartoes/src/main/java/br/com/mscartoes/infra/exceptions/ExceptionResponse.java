@@ -3,8 +3,6 @@ package br.com.mscartoes.infra.exceptions;
 import br.com.mscartoes.domain.enums.ErrorCodes;
 import lombok.Data;
 
-import java.util.List;
-
 @Data
 public class ExceptionResponse {
     private final String code;
