@@ -3,6 +3,7 @@ package br.com.mscartoes.application.services;
 import br.com.mscartoes.application.dtos.CartaoDTO;
 import br.com.mscartoes.domain.interfaces.ICartaoRepository;
 import br.com.mscartoes.domain.model.Cartao;
+import br.com.mscartoes.infra.exceptions.CartoesNaoEncontradosExeception;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -42,7 +43,6 @@ class CartaoServiceTest {
 
     @Test
     public void getCartoesRendaMenorIgual_ComCartaoValido_RetornandoListaDeCartoes() {
-        // Arrange
         long renda = 50000L;
         BigDecimal rendaBigDecimal = BigDecimal.valueOf(renda);
         List<Cartao> cartoes = new ArrayList<>();
@@ -56,5 +56,14 @@ class CartaoServiceTest {
         assertNotNull(result);
         assertEquals(1, result.size());
         verify(_cartaoRepository, times(1)).findByRendaLessThanEqual(rendaBigDecimal);
+    }
+
+    @Test
+    public void getCartoesRendaMenorIgual_SemCartao_RetornandoCartoesNaoEncontradosException() {
+         when(_cartaoRepository.findByRendaLessThanEqual(any(BigDecimal.class))).thenReturn(null);
+
+        assertThrows(CartoesNaoEncontradosExeception.class, () -> {
+            _cartaoService.getCartoesRendaMenorIgual(1000L);
+        });
     }
 }
