@@ -14,4 +14,8 @@ public class CartaoDTO {
     private BandeiraCartao bandeira;
     private BigDecimal renda;
     private BigDecimal limiteBasico;
+
+    public CartaoDTO(String nome) {
+        this.nome = nome;
+    }
 }
