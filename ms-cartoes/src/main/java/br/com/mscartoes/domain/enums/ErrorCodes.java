@@ -8,7 +8,8 @@ import lombok.Getter;
 public enum ErrorCodes {
 
     CARTAO_NAO_ENCONTRADO("Cartão não foi encontrado"),
-    CLIENTE_NAO_ENCONTRADO("Cliente não foi encontrado");
+    CLIENTE_NAO_ENCONTRADO("Cliente não foi encontrado"),
+    CARTOES_NAO_ENCONTRADOS("Cartões não foram encontrados");
     private final String message;
 
 }
