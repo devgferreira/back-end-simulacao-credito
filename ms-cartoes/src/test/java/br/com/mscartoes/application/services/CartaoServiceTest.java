@@ -40,5 +40,21 @@ class CartaoServiceTest {
 
     }
 
+    @Test
+    public void getCartoesRendaMenorIgual_ComCartaoValido_RetornandoListaDeCartoes() {
+        // Arrange
+        long renda = 50000L;
+        BigDecimal rendaBigDecimal = BigDecimal.valueOf(renda);
+        List<Cartao> cartoes = new ArrayList<>();
+        Cartao cartao = new Cartao();
+        cartoes.add(cartao);
 
+        when(_cartaoRepository.findByRendaLessThanEqual(rendaBigDecimal)).thenReturn(cartoes);
+
+        List<CartaoDTO> result = _cartaoService.getCartoesRendaMenorIgual(renda);
+
+        assertNotNull(result);
+        assertEquals(1, result.size());
+        verify(_cartaoRepository, times(1)).findByRendaLessThanEqual(rendaBigDecimal);
+    }
 }
