@@ -11,6 +11,11 @@ import java.math.BigDecimal;
 public class ClienteCartaoDTO {
     private Long id;
     private String cpf;
+
     private Cartao cartao;
     private BigDecimal limite;
+
+    public ClienteCartaoDTO(String cpf) {
+        this.cpf = cpf;
+    }
 }
