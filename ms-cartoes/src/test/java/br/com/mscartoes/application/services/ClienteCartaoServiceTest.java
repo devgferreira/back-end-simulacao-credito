@@ -44,7 +44,14 @@ class ClienteCartaoServiceTest {
         verify(_clienteCartaoRepository, times(1)).findByCpf(cpf);
     }
 
+    @Test
+    void listCartoesByCpf_ComCpfInvalido_RetornandoClienteNaoEncontradoExeception() {
+        when(_clienteCartaoRepository.findByCpf(any())).thenReturn(null);
 
+        assertThrows(ClienteNaoEncontradoExeception.class, () -> {
+            _clienteCartaoService.listCartoesByCpf("12345678901");
+        });
+    }
 
 
 }
