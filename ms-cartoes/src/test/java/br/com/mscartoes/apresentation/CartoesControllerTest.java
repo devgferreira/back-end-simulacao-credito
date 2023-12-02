@@ -40,7 +40,16 @@ class CartoesControllerTest {
                 .andExpect(status().isCreated()).andExpect(jsonPath("$").value(CARTAO_DTO_VALIDO));
 
     }
+    @Test
+    void getCartoesRendaAte() throws Exception {
+        List<ClienteCartaoDTO> clienteCartaoDTOS = new ArrayList<>();
 
+        when(_clienteCartaoService.listCartoesByCpf(CLIENTE_CARTAO_DTO.getCpf())).thenReturn(clienteCartaoDTOS);
+
+        _mockMvc.perform(get("/cartoes?cpf=" + CLIENTE_CARTAO_DTO.getCpf())).andExpect(status().isOk())
+                .andExpect(jsonPath("$").value(clienteCartaoDTOS));
+
+    }
 
 }
 
