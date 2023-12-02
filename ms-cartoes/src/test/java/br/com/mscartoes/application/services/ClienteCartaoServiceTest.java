@@ -2,9 +2,7 @@ package br.com.mscartoes.application.services;
 
 import br.com.mscartoes.application.dtos.ClienteCartaoDTO;
 import br.com.mscartoes.domain.interfaces.IClienteCartaoRepository;
-import br.com.mscartoes.domain.model.Cartao;
 import br.com.mscartoes.domain.model.ClienteCartao;
-import br.com.mscartoes.infra.exceptions.CartoesNaoEncontradosExeception;
 import br.com.mscartoes.infra.exceptions.ClienteNaoEncontradoExeception;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,7 +15,7 @@ import org.modelmapper.ModelMapper;
 import java.util.ArrayList;
 import java.util.List;
 
-import static br.com.mscartoes.common.ClienteCartaoConstants.CLIENTE_CARTAO_DTO;
+import static br.com.mscartoes.common.ClienteCartaoDTOConstants.CLIENTE_CARTAO_DTO;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 

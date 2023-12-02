@@ -27,13 +27,6 @@ public class CartoesController {
         _cartaoService = cartaoService;
         _clienteCartaoService = clienteCartaoService;
     }
-
-    @GetMapping
-    public String status() {
-        log.info("Obetando o status do microservice de cartões");
-        return "ok";
-    }
-
     @PostMapping
     public ResponseEntity<CartaoSaveResponse> cadastraCartao(@RequestBody CartaoDTO cartaoDTO) {
         CartaoDTO cartao = _cartaoService.criarCartao(cartaoDTO);

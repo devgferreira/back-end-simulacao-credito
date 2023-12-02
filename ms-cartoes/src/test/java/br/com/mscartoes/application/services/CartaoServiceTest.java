@@ -5,7 +5,6 @@ import br.com.mscartoes.domain.interfaces.ICartaoRepository;
 import br.com.mscartoes.domain.model.Cartao;
 import br.com.mscartoes.infra.exceptions.CartoesNaoEncontradosExeception;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -16,8 +15,8 @@ import org.modelmapper.ModelMapper;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import static br.com.mscartoes.common.CartaoConstants.CARTAO_DTO_VALIDO;
+
+import static br.com.mscartoes.common.CartaoDTOConstants.CARTAO_DTO_VALIDO;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
