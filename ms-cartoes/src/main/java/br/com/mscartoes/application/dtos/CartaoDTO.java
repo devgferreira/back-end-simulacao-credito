@@ -18,4 +18,7 @@ public class CartaoDTO {
     public CartaoDTO(String nome) {
         this.nome = nome;
     }
+    public CartaoDTO(BigDecimal renda) {
+        this.renda = renda;
+    }
 }
