@@ -41,7 +41,7 @@ class CartoesControllerTest {
 
     }
     @Test
-    void getCartoesRendaAte() throws Exception {
+    void getCartoesByCliente() throws Exception {
         List<ClienteCartaoDTO> clienteCartaoDTOS = new ArrayList<>();
 
         when(_clienteCartaoService.listCartoesByCpf(CLIENTE_CARTAO_DTO.getCpf())).thenReturn(clienteCartaoDTOS);
