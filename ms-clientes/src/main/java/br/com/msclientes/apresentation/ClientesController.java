@@ -9,8 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
 @RestController
 @RequestMapping("/clientes")
 @Slf4j
@@ -23,25 +21,16 @@ public class ClientesController {
         _clienteService = clienteService;
     }
 
-    @GetMapping
-    public String status(){
-        log.info("Obetando o status do microservice de clientes");
-        return "ok";
-    }
-
     @PostMapping
-    public ResponseEntity<ClienteSaveResponse> save(@RequestBody ClienteDTO clienteDTO ){
-        ClienteDTO cliente = _clienteService.save(clienteDTO);
+    public ResponseEntity<ClienteSaveResponse> save(@RequestBody ClienteDTO clienteDTO) {
+        ClienteDTO cliente = _clienteService.criarCliente(clienteDTO);
         ClienteSaveResponse clienteSaveResponse = new ClienteSaveResponse(cliente);
         return new ResponseEntity<>(clienteSaveResponse, HttpStatus.CREATED);
     }
 
     @GetMapping(params = "cpf")
-    public ResponseEntity<ClienteDTO> dadosCliente(@RequestParam("cpf") String cpf){
+    public ResponseEntity<ClienteDTO> dadosCliente(@RequestParam("cpf") String cpf) {
         ClienteDTO cliente = _clienteService.getByCPF(cpf);
-        if(cliente.getCpf() == null){
-            return ResponseEntity.notFound().build();
-        }
         return ResponseEntity.ok(cliente);
     }
 }
