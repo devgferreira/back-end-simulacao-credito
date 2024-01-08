@@ -10,8 +10,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableRabbit
 public class MsCartoesApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MsCartoesApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MsCartoesApplication.class, args);
+    }
 
 }
