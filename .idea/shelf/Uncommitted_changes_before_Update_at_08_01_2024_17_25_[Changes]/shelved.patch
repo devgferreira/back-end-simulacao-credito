@@ -1,0 +1,85 @@
+Index: ms-cartoes/src/main/resources/application-DOCKER.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>spring:\r\n  rabbitmq:\r\n    host: rabbitmq\r\n    port: 5672\r\n    username: guest\r\n    password: guest\r\nserver:\r\n  port: 0\r\n\r\neureka:\r\n  client:\r\n    service-url:\r\n      defaultZone: http://ms-eureka-user:rre-easme-usuk@back-end-simulacao-credito-eureka-server:8761/eureka\r\n  instance:\r\n    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}]\r\nmq:\r\n  queues:\r\n    emissao-cartoes: emissao-cartoes\r\n\r\nmanagement:\r\n  endpoints:\r\n    web:\r\n      exposure:\r\n        include: '*'\r\n\r\nlogging:\r\n  file:\r\n    name: ./log/log-file.log
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ms-cartoes/src/main/resources/application-DOCKER.yml b/ms-cartoes/src/main/resources/application-DOCKER.yml
+--- a/ms-cartoes/src/main/resources/application-DOCKER.yml	(revision 4f46ae348e01b18f3171255126b5f24a4c380463)
++++ b/ms-cartoes/src/main/resources/application-DOCKER.yml	(date 1704737449217)
+@@ -10,7 +10,7 @@
+ eureka:
+   client:
+     service-url:
+-      defaultZone: http://ms-eureka-user:rre-easme-usuk@back-end-simulacao-credito-eureka-server:8761/eureka
++      defaultZone: http://ms-eureka-user:rre-easme-usuk@eureka-server:8761
+   instance:
+     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}]
+ mq:
+Index: ms-avaliador-credito/src/main/resources/application-DOCKER.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>spring:\r\n  rabbitmq:\r\n    host: rabbitmq\r\n    port: 5672\r\n    username: guest\r\n    password: guest\r\n\r\nserver:\r\n  port: 0\r\n\r\neureka:\r\n  client:\r\n    service-url:\r\n      defaultZone: http://ms-eureka-user:rre-easme-usuk@back-end-simulacao-credito-eureka-server:8761/eureka\r\n  instance:\r\n    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}]\r\n\r\nmq:\r\n  queues:\r\n    emissao-cartoes: emissao-cartoes\r\n\r\nmanagement:\r\n  endpoints:\r\n    web:\r\n      exposure:\r\n        include: '*'\r\n\r\nlogging:\r\n  file:\r\n    name: ./log/log-file.log
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ms-avaliador-credito/src/main/resources/application-DOCKER.yml b/ms-avaliador-credito/src/main/resources/application-DOCKER.yml
+--- a/ms-avaliador-credito/src/main/resources/application-DOCKER.yml	(revision 4f46ae348e01b18f3171255126b5f24a4c380463)
++++ b/ms-avaliador-credito/src/main/resources/application-DOCKER.yml	(date 1704737463179)
+@@ -11,7 +11,7 @@
+ eureka:
+   client:
+     service-url:
+-      defaultZone: http://ms-eureka-user:rre-easme-usuk@back-end-simulacao-credito-eureka-server:8761/eureka
++      defaultZone: http://ms-eureka-user:rre-easme-usuk@eureka-server:8761
+   instance:
+     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}]
+ 
+Index: ms-clientes/src/main/resources/application-DOCKER.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\nserver:\r\n  port: 0\r\n\r\neureka:\r\n  client:\r\n    service-url:\r\n      defaultZone: http://ms-eureka-user:rre-easme-usuk@back-end-simulacao-credito-eureka-server:8761/eureka\r\n  instance:\r\n    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}]\r\n\r\nmq:\r\n  queues:\r\n    emissao-cartoes: emissao-cartoes\r\n\r\nmanagement:\r\n  endpoints:\r\n    web:\r\n      exposure:\r\n        include: '*'\r\n\r\nlogging:\r\n  file:\r\n    name: ./log/log-file.log
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ms-clientes/src/main/resources/application-DOCKER.yml b/ms-clientes/src/main/resources/application-DOCKER.yml
+--- a/ms-clientes/src/main/resources/application-DOCKER.yml	(revision 4f46ae348e01b18f3171255126b5f24a4c380463)
++++ b/ms-clientes/src/main/resources/application-DOCKER.yml	(date 1704737426380)
+@@ -5,7 +5,7 @@
+ eureka:
+   client:
+     service-url:
+-      defaultZone: http://ms-eureka-user:rre-easme-usuk@back-end-simulacao-credito-eureka-server:8761/eureka
++      defaultZone: http://ms-eureka-user:rre-easme-usuk@eureka-server:8761
+   instance:
+     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}]
+ 
+Index: ms-cloud-gateway/src/main/resources/application-DOCKER.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>spring:\r\n  cloud:\r\n    gateway:\r\n      locator:\r\n        enabled: true\r\n        lower-case-service-id: true\r\n  security:\r\n    oauth2:\r\n      resourceserver:\r\n        jwt:\r\n          issuer-uri: http://back-end-simulacao-credito-keycloak:8080/realms/back-end-simulacao-credito-realm\r\nserver:\r\n  port: 8080\r\n\r\neureka:\r\n  client:\r\n    fetch-registry: true\r\n    register-with-eureka: true\r\n    service-url:\r\n      defaultZone: http://ms-eureka-user:rre-easme-usuk@back-end-simulacao-credito-eureka-server:8761/eureka\r\n  instance:\r\n    hostname: localhost\r\n    instance-id: ${spring.application.name}\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ms-cloud-gateway/src/main/resources/application-DOCKER.yml b/ms-cloud-gateway/src/main/resources/application-DOCKER.yml
+--- a/ms-cloud-gateway/src/main/resources/application-DOCKER.yml	(revision 4f46ae348e01b18f3171255126b5f24a4c380463)
++++ b/ms-cloud-gateway/src/main/resources/application-DOCKER.yml	(date 1704737437856)
+@@ -8,7 +8,7 @@
+     oauth2:
+       resourceserver:
+         jwt:
+-          issuer-uri: http://back-end-simulacao-credito-keycloak:8080/realms/back-end-simulacao-credito-realm
++          issuer-uri: http://localhost:8081/realms/back-end-simulacao-credito-realm
+ server:
+   port: 8080
+ 
+@@ -17,7 +17,7 @@
+     fetch-registry: true
+     register-with-eureka: true
+     service-url:
+-      defaultZone: http://ms-eureka-user:rre-easme-usuk@back-end-simulacao-credito-eureka-server:8761/eureka
++      defaultZone: http://ms-eureka-user:rre-easme-usuk@eureka-server:8761
+   instance:
+     hostname: localhost
+     instance-id: ${spring.application.name}

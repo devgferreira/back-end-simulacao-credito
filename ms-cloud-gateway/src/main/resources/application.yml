@@ -2,5 +2,5 @@ spring:
   application:
     name: ms-cloud-gateway
   profiles:
-    active: LOCAL
+    active: DOCKER
 

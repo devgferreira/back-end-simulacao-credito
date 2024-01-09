@@ -17,7 +17,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://ms-eureka-user:rre-easme-usuk@back-end-simulacao-credito-eureka-server:8761/eureka
+      defaultZone: http://ms-eureka-user:rre-easme-usuk@eureka-server:8761/eureka
   instance:
     hostname: localhost
     instance-id: ${spring.application.name}
