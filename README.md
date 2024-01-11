@@ -62,3 +62,12 @@ Constants: Regras que os valores não podem ser mutáveis.
 Exceptions: Configuração de exceção e seu manipulador.
 
 Mqueue: Configuração rabbit para o envio das mensagens.
+
+# Microservices
+
+## Eureka-server
+A API eureka-server é um registrador de outras APIs.
+
+
+## Ms-cloud-geteway
+A API ms-cloud-geteway é um centralizador de acesso, todas as APIs que se registrarem na API eureka-server terão a mesma porta por conta da API ms-cloud-geteway.
