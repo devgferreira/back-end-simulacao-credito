@@ -71,3 +71,12 @@ A API eureka-server é um registrador de outras APIs.
 
 ## Ms-cloud-geteway
 A API ms-cloud-geteway é um centralizador de acesso, todas as APIs que se registrarem na API eureka-server terão a mesma porta por conta da API ms-cloud-geteway.
+
+## Ms-clientes
+A API ms-clientes foi feita para a criação e busca de clientes, e consiste com um controlador: ClientesController.
+
+ClientesController:
+O ClientesController tem dois end-points.
+
+save: Esse end-point é responsável por criar um novo cliente e persistir o mesmo no banco de dados.
+dadosCliente: Esse end-point é responsável por buscar um funcionário pelo seu CPF no banco de dados.
