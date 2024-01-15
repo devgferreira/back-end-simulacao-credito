@@ -78,5 +78,15 @@ A API ms-clientes foi feita para a criação e busca de clientes, e consiste com
 ClientesController:
 O ClientesController tem dois end-points.
 
-save: Esse end-point é responsável por criar um novo cliente e persistir o mesmo no banco de dados.
-dadosCliente: Esse end-point é responsável por buscar um funcionário pelo seu CPF no banco de dados.
+#### save: Esse end-point é responsável por criar um novo cliente e persistir o mesmo no banco de dados. 
+#### dadosCliente: Esse end-point é responsável por buscar um funcionário pelo seu CPF no banco de dados. 
+
+## Ms-cartoes
+A API ms-cartoes foi feita para a criação e busca de cartões, e consiste com um controlador: CartoesController.
+
+CartoesController:
+O CartoesConmtroller tem três end-points. 
+
+#### cadastraCartao : Esse end-point é responsável por criar um novo cartão e persistir o mesmo no banco de dados. 
+#### getCartoesRendaAte: Esse end-point é responsável por buscar um cartão com a renda informada no parâmetro. 
+#### getCartoesByCliente: Esse edn-point é respásavel por buscar cartões vinculado a um cliente, esse cliente é buscado pelo CPF informado no parâmetro. 
