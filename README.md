@@ -89,4 +89,14 @@ O CartoesConmtroller tem três end-points.
 
 #### cadastraCartao : Esse end-point é responsável por criar um novo cartão e persistir o mesmo no banco de dados. 
 #### getCartoesRendaAte: Esse end-point é responsável por buscar um cartão com a renda informada no parâmetro. 
-#### getCartoesByCliente: Esse edn-point é respásavel por buscar cartões vinculado a um cliente, esse cliente é buscado pelo CPF informado no parâmetro. 
+#### getCartoesByCliente: Esse end-point é respásavel por buscar cartões vinculado a um cliente, esse cliente é buscado pelo CPF informado no parâmetro. 
+
+## Ms-avaliador-credito
+A API ms-avaliador-credito foi feita para avaliar se o cliente cumpre os requisitos dos cartão, e consiste com um controlador: AvaliadorCreditoController .
+
+CartoesController:
+O AvaliadorCreditoController  tem três end-points. 
+
+#### consultarSituacaoCliente : Esse end-point é responsável por consultar a situação do cliente, e valida se o cliente tem cartões disponível.
+#### realizarAvaliacao: Esse end-point é responsável por fazer a avaliação do cliente e mostrar os cartões que o cliente pode fazer a emissão.
+#### solicitarCartao: Esse end-point é respásavel por fazer a emissão do cartão para o cliente.
